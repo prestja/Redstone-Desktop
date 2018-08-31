@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Redstone_Desktop.Properties {
+namespace prestja.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

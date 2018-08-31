@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Redstone_Desktop {
+namespace prestja {
     /// <summary>
     /// Interaction logic for ConnectionWindow.xaml
     /// </summary>

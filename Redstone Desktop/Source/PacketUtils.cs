@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WisdomOtter {
+namespace prestja {
     public static class PacketUtils {
         private static int requestID = 0;
         public static int nextRequestID {

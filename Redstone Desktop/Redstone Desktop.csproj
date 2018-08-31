@@ -7,7 +7,7 @@
     <ProjectGuid>{D4EBE8CC-893C-492E-8769-31C82CB37CC9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Redstone_Desktop</RootNamespace>
+    <RootNamespace>prestja</RootNamespace>
     <AssemblyName>Redstone Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -65,7 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Colors.cs" />
+    <Compile Include="Source\GameColors.cs" />
     <Compile Include="ConnectionWindow.xaml.cs">
       <DependentUpon>ConnectionWindow.xaml</DependentUpon>
     </Compile>
@@ -75,8 +75,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packet.cs" />
-    <Compile Include="PacketUtils.cs" />
+    <Compile Include="Source\Netcode.cs" />
+    <Compile Include="Source\Packet.cs" />
+    <Compile Include="Source\PacketUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,7 +96,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <Resource Include="Minecraftia-Regular.ttf">
+    <Resource Include="Resources\Minecraftia-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <None Include="Properties\Settings.settings">
@@ -105,7 +106,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="backdrop.png">
+    <Resource Include="Resources\backdrop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

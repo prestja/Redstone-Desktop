@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WisdomOtter {
+namespace prestja {
     public enum PacketType {
         response = 0,
         command = 2,

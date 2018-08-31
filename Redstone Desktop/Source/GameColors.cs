@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace WisdomOtter {
+namespace prestja {
     public static class GameColors {
         public static Color standard = Color.FromRgb(255, 255, 255);
         public static Color highlight = Color.FromRgb(170, 170, 170);
