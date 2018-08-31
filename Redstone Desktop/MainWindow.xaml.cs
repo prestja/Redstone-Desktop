@@ -58,7 +58,7 @@ namespace Redstone_Desktop {
             for (int i = 0; i < onlinePlayers.Length; i++) {
                 Log(onlinePlayers[i], GameColors.green);
             }
-            // I did something
+            // Test this
         }
 
         private async void Command(String message) {
