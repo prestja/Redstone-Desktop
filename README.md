@@ -1,9 +1,9 @@
 # Redstone Desktop
 TCP-based RCON client for Minecraft: Java Edition
 ## About
-
+Redstone Desktop helps admins manage their small-scale Minecraft servers. Take a look at the roadmap to see what's coming soon.
 ## Roadmap
-* Dialog option for server address, port, and password 
-* Ability to save login information to file (a security warning will be given)
+* Save login credentials to file (a security warning will be given)
 * Interactive player list (kill player, peek inventory, etc..)
-* Syntax highlighting for built-in commands
+* Syntax highlighting for vanilla commands
+* ~~Dialog option for server address, port, and password~~
