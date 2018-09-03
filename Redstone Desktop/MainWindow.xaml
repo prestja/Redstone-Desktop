@@ -15,20 +15,13 @@
             <ColumnDefinition Width="287*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="246*"/>
-            <RowDefinition Height="22*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="122*"/>
+            <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="input" Height="24" Margin="15,10,78,10" Text="" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" VerticalScrollBarVisibility="Disabled" KeyDown="EnterKeyHandler" VerticalAlignment="Center" Grid.Row="2" Background="#66000000" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="#FFAAAAAA" TabIndex="5"/>
-        <Button x:Name="send" Content="Send" Margin="0,10,6,10" Click="send_Click" Grid.Row="2" VerticalAlignment="Center" Height="24" HorizontalAlignment="Right" Width="72" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia"/>
-        <ListView x:Name="playerList" Margin="8,10,10,10" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Background="#66000000" BorderBrush="{x:Null}" TabIndex="3" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <RichTextBox x:Name="localConsole" Margin="10,37,10,2" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" HorizontalScrollBarVisibility="Disabled" VerticalContentAlignment="Stretch" Grid.Row="1" Background="#66000000" BorderBrush="{x:Null}" SelectionBrush="#FFAAAAAA" TabIndex="4">
+        <TextBox x:Name="input" Height="24" Margin="10,10,83,10" Text="" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" VerticalScrollBarVisibility="Disabled" KeyDown="EnterKeyHandler" VerticalAlignment="Center" Grid.Row="2" Background="#66000000" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="#FFAAAAAA" TabIndex="3" BorderThickness="0"/>
+        <Button x:Name="send" Content="Send" Margin="0,10,10,10" Click="send_Click" Grid.Row="2" Height="24" HorizontalAlignment="Right" Width="72" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" BorderThickness="0" IsTabStop="False"/>
+        <RichTextBox x:Name="localConsole" Margin="10,37,10,10" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" HorizontalScrollBarVisibility="Disabled" VerticalContentAlignment="Stretch" Grid.Row="1" Background="#66000000" BorderBrush="{x:Null}" SelectionBrush="#FFAAAAAA" TabIndex="4" BorderThickness="0">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
@@ -40,7 +33,13 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Console" VerticalAlignment="Top" Height="22" Width="717" Background="#66000000" Foreground="White" TextAlignment="Center" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia"/>
+        <TextBlock x:Name="textBlock" Margin="10,10,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Console" VerticalAlignment="Top" Height="22" Width="717" Background="#66000000" Foreground="White" TextAlignment="Center" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia"/>
+        <TextBox x:Name="field_address" HorizontalAlignment="Left" Margin="15,10,0,10" TextWrapping="Wrap" Width="276" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" TabIndex="0"/>
+        <PasswordBox x:Name="field_password" HorizontalAlignment="Left" Margin="361,10,0,10" Width="183" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" TabIndex="2"/>
+        <TextBox x:Name="field_port" HorizontalAlignment="Left" Margin="296,10,0,10" TextWrapping="Wrap" Width="60" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" TabIndex="1"/>
+        <Button x:Name="button_connect" Content="Connect" HorizontalAlignment="Right" Margin="0,10,10,10" Width="74" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" Click="button_connect_Click" BorderThickness="0" TabIndex="200" IsTabStop="False"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Connected Players" VerticalAlignment="Top" Height="22" Width="267" Background="#66000000" Foreground="White" TextAlignment="Center" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" Grid.Column="1"/>
+        <ListBox x:Name="playerList" Grid.Column="1" HorizontalAlignment="Left" Height="441" Margin="10,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="267" BorderThickness="0" Background="#66000000" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" Foreground="White"/>
 
     </Grid>
 </Window>
