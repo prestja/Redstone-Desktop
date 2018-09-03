@@ -6,41 +6,43 @@ using System.Windows;
 
 namespace prestja {
     public partial class MainWindow : Window {
-        private async void AttemptConnection() {
-            Log("Connecting to server at " + client.Client.RemoteEndPoint, GameColors.warning);
+        private async void AttemptConnection()
+        {
+            Log("Connecting to server at " + Client.Client.RemoteEndPoint, Minecraft.warning);
             bool success = await ConnectAsync(field_password.Password);
-            if (success) {
-                Log("Connection successful", GameColors.green);
+            if (success)
+            {
+                Log("Connection successful", Minecraft.success);
                 GetPlayers();
             }
-            else {
-                Log("Failed to connect to server", GameColors.error);
+            else
+            {
+                Log("Failed to connect to server", Minecraft.error);
             }
         }
-        private async void Reconnect() {
-            throw new NotImplementedException(); // todo: implement
-        }
-        private async void GetPlayers() {
+
+        private async void GetPlayers()
+        {
             string response = await SendCommandAsync("list");
             int index = response.IndexOf(':');
             response = response.Remove(0, index + 1);
-            connectedPlayers = response.Split(',');
-            for (int i = 0; i < connectedPlayers.Length; i++) {
-                connectedPlayers[i] = connectedPlayers[i].Trim();
+            ConnectedPlayers = response.Split(',');
+            for (int i = 0; i < ConnectedPlayers.Length; i++)
+            {
+                ConnectedPlayers[i] = ConnectedPlayers[i].Trim();
             }
             UpdatePlayerList();
         }
-        private async void GetPlayerNBT(string username) {
-            // todo: implement
-            throw new NotImplementedException();
-        }
-        private async void Command(String message) {
+
+        private async void Command(String message)
+        {
             string response = await SendCommandAsync(message);
-            Log(response, GameColors.standard);
+            Log(response, Minecraft.standard);
         }
 
-        static async Task<bool> ConnectAsync(string password) {
-            NetworkStream stream = client.GetStream();
+        static async Task<bool> ConnectAsync(string password)
+        {
+            NetworkStream stream = Client.GetStream();
             Packet login = Packet.FormatLogin(password);
             byte[] outgoing = login.Serialize();
             byte[] incoming = new byte[1234];
@@ -49,19 +51,23 @@ namespace prestja {
             stream.Write(outgoing, 0, outgoing.Length);
             await stream.ReadAsync(incoming, 0, incoming.Length);
             Packet response = Packet.DeSerialize(incoming);
-            if (response.requestID == login.requestID) {
+            if (response.requestID == login.requestID)
+            {
                 Console.WriteLine("Connection successful");
-                connected = true;
-                return connected;
+                Connected = true;
+                return Connected;
             }
-            else {
+            else
+            {
                 Console.WriteLine("Connection failed");
-                connected = false;
-                return connected;
+                Connected = false;
+                return Connected;
             }
         }
-        static async Task<string> SendCommandAsync(string message) {
-            NetworkStream stream = client.GetStream();
+
+        static async Task<string> SendCommandAsync(string message)
+        {
+            NetworkStream stream = Client.GetStream();
             Packet request = Packet.Format(PacketType.command, message);
             byte[] outgoing = request.Serialize();
             byte[] incoming = new byte[1234];
@@ -74,3 +80,4 @@ namespace prestja {
         }
     }
 }
+// special thanks to https://wiki.vg/RCON
