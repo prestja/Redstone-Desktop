@@ -6,12 +6,16 @@ using System.Windows;
 
 namespace prestja {
     public partial class MainWindow : Window {
-        private async void PerformInitialConnection() {
+        private async void AttemptConnection() {
             Log("Connecting to server at " + client.Client.RemoteEndPoint, GameColors.warning);
-            bool success = await ConnectAsync();
-            if (success)
+            bool success = await ConnectAsync(field_password.Password);
+            if (success) {
                 Log("Connection successful", GameColors.green);
-            else Log("Failed to connect to server", GameColors.error);
+                GetPlayers();
+            }
+            else {
+                Log("Failed to connect to server", GameColors.error);
+            }
         }
         private async void Reconnect() {
             throw new NotImplementedException(); // todo: implement
@@ -20,19 +24,24 @@ namespace prestja {
             string response = await SendCommandAsync("list");
             int index = response.IndexOf(':');
             response = response.Remove(0, index + 1);
-            onlinePlayers = response.Split(',');
-            for (int i = 0; i < onlinePlayers.Length; i++) {
-                onlinePlayers[i] = onlinePlayers[i].Trim();
+            connectedPlayers = response.Split(',');
+            for (int i = 0; i < connectedPlayers.Length; i++) {
+                connectedPlayers[i] = connectedPlayers[i].Trim();
             }
+            UpdatePlayerList();
+        }
+        private async void GetPlayerNBT(string username) {
+            // todo: implement
+            throw new NotImplementedException();
         }
         private async void Command(String message) {
             string response = await SendCommandAsync(message);
             Log(response, GameColors.standard);
         }
 
-        static async Task<bool> ConnectAsync() {
+        static async Task<bool> ConnectAsync(string password) {
             NetworkStream stream = client.GetStream();
-            Packet login = Packet.FormatLogin("hugs");
+            Packet login = Packet.FormatLogin(password);
             byte[] outgoing = login.Serialize();
             byte[] incoming = new byte[1234];
             if (stream == null)
