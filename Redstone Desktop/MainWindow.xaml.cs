@@ -22,11 +22,9 @@ namespace prestja
 
         public MainWindow()
         {
-            // initializing the user interface
-            InitializeComponent();
+            InitializeComponent(); // configure the user interface
             localConsole.IsReadOnly = true;
-            // load credentials from file, if they exist
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Redstone Desktop\\login.dat");
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Redstone Desktop\\login.dat"); // load login from file, if it exists
             FileInfo file = new FileInfo(fileName);
             try
             {
@@ -53,7 +51,7 @@ namespace prestja
             field_address.Text = Address;
         }
 
-        private void Log(string line, Color color) 
+        private void Log(string line, Color color)
         {
             Paragraph para = new Paragraph(new Run(line));
             para.Foreground = new SolidColorBrush(color);
@@ -76,9 +74,10 @@ namespace prestja
             {
                 string response = await SendCommandAsync(input.Text);
                 Console.WriteLine(response);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                
+                    
             }
         }
 
@@ -115,6 +114,17 @@ namespace prestja
                 return;
             }
             AttemptConnection();
+        }
+
+        private void button_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+
+        }
+
+        private void button_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

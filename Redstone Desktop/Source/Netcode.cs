@@ -37,6 +37,7 @@ namespace prestja {
         private async void Command(String message)
         {
             string response = await SendCommandAsync(message);
+            if (response.Equals("")) return;
             Log(response, Minecraft.standard);
         }
 
@@ -68,15 +69,13 @@ namespace prestja {
         static async Task<string> SendCommandAsync(string message)
         {
             NetworkStream stream = Client.GetStream();
-            Packet request = Packet.Format(PacketType.command, message);
-            byte[] outgoing = request.Serialize();
+            byte[] outgoing = Packet.Format(PacketType.command, message).Serialize();
             byte[] incoming = new byte[1234];
             if (stream == null)
                 return "";
             stream.Write(outgoing, 0, outgoing.Length);
             await stream.ReadAsync(incoming, 0, incoming.Length);
-            Packet response = Packet.DeSerialize(incoming);
-            return Encoding.ASCII.GetString(response.payload);
+            return Encoding.ASCII.GetString(Packet.DeSerialize(incoming).payload);
         }
     }
 }

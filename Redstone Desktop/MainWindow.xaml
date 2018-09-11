@@ -34,12 +34,22 @@
             </FlowDocument>
         </RichTextBox>
         <TextBlock x:Name="textBlock" Margin="10,10,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Console" VerticalAlignment="Top" Height="22" Width="717" Background="#66000000" Foreground="White" TextAlignment="Center" FontFamily="/rsdesktop;component/Resources/#Minecraftia"/>
-        <TextBox x:Name="field_address" HorizontalAlignment="Left" Margin="15,10,0,10" TextWrapping="Wrap" Width="276" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="0"/>
-        <PasswordBox x:Name="field_password" HorizontalAlignment="Left" Margin="361,10,0,10" Width="183" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="2"/>
-        <TextBox x:Name="field_port" HorizontalAlignment="Left" Margin="296,10,0,10" TextWrapping="Wrap" Width="60" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="1"/>
-        <Button x:Name="button_connect" Content="Connect" HorizontalAlignment="Right" Margin="0,10,10,10" Width="74" FontFamily="/rsdesktop;component/Resources/#Minecraftia" Click="button_connect_Click" BorderThickness="0" TabIndex="200" IsTabStop="False"/>
+        <TextBox x:Name="field_address" HorizontalAlignment="Left" Margin="15,10,0,10" TextWrapping="Wrap" Width="276" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="0" VerticalScrollBarVisibility="Disabled"/>
+        <PasswordBox x:Name="field_password" HorizontalAlignment="Left" Margin="361,10,0,10" Width="183" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="2" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        <TextBox x:Name="field_port" HorizontalAlignment="Left" Margin="296,10,0,10" TextWrapping="Wrap" Width="60" FontFamily="/rsdesktop;component/Resources/#Minecraftia" TabIndex="1" VerticalScrollBarVisibility="Disabled" MaxLength="5"/>
+        <Button x:Name="button_Connect" Content="Connect" HorizontalAlignment="Right" Margin="0,10,10,10" Width="74" FontFamily="/rsdesktop;component/Resources/#Minecraftia" Click="button_connect_Click" BorderThickness="0" TabIndex="200" IsTabStop="False"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Connected Players" VerticalAlignment="Top" Height="22" Width="267" Background="#66000000" Foreground="White" TextAlignment="Center" FontFamily="/rsdesktop;component/Resources/#Minecraftia" Grid.Column="1"/>
         <ListBox x:Name="playerList" Grid.Column="1" HorizontalAlignment="Left" Height="441" Margin="10,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="267" BorderThickness="0" Background="#66000000" FontFamily="/Redstone Desktop;component/Resources/#Minecraftia" Foreground="White"/>
+        <Button x:Name="button_Minimize" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="224,10,0,10" Width="24" Click="button_Minimize_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/button_minimize.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="button_Exit" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="253,10,0,10" Width="24" Click="button_Exit_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/button_close.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
